@@ -14,10 +14,8 @@ ENV GOFLAGS="-mod=vendor"
 WORKDIR ${GOPATH:-/go}/src/temporalite
 
 COPY . .
-RUN go mod download
-RUN go get -d -v ./...
 
-RUN go build -o ${GOPATH:-/go}/bin/ ${GOPATH:-/go}/src/temporalite/cmd/temporalite
+RUN go build -v -o ${GOPATH:-/go}/bin/ ${GOPATH:-/go}/src/temporalite/cmd/temporalite
 
 FROM ${BASE_IMAGE_RUNTIME}
 
