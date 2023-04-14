@@ -8,7 +8,7 @@ RUN go get -d -v ./...
 
 RUN go build -o ${GOPATH:-/go}/bin/ ${GOPATH:-/go}/src/temporalite/cmd/temporalite
 
-FROM gcr.io/distroless/base-debian11
+FROM gcr.io/anz-x-fabric-np-641432/base-images/base-debian11:v1.0.0
 
 COPY --from=builder ${GOPATH:-/go}/bin/temporalite /
 EXPOSE 7233
